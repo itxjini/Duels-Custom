@@ -26,6 +26,10 @@ commands:
   duels:
     description: Administrative command of Duels.
     aliases: [ ds ]
+  kiteditor:
+    description: Opens the Kit Editor GUI
+    usage: /kiteditor [kitName] [player]
+    aliases: [ ke ]
 
 permissions:
   duels.*:

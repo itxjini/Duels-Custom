@@ -130,10 +130,16 @@ public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
         initLoadables();
         loadPreListeners();
 
+        // 🔽 Kit Editor setup
+        KitManager kitManager = new KitManager(this);
+        getCommand("kiteditor").setExecutor(new KitsEditCommand(kitManager));
+        getServer().getPluginManager().registerEvents(new KitEditorListener(kitManager), this);
+
         long end = System.currentTimeMillis();
         sendMessage("&2Successfully enabled Duels in " + CC.getTimeDifferenceAndColor(start, end) + "&a.");
         checkForUpdatesAndMetrics();
     }
+
 
     @Override
     public void onDisable() {
